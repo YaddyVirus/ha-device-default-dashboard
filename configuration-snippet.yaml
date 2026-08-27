@@ -1,0 +1,8 @@
+# Add this under panel_custom: in configuration.yaml (create the key if it
+# doesn't exist yet). Bump the ?v= number any time you edit
+# device-default-dashboard.js -- see the caching gotcha in README.md.
+panel_custom:
+  - name: device-default-dashboard
+    sidebar_title: Set Device Dashboard
+    sidebar_icon: mdi:devices
+    module_url: /local/dashboard/device-default-dashboard.js?v=1
