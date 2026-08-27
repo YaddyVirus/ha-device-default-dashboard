@@ -4,6 +4,8 @@ A fix for the [Restore device-specific default dashboard](https://community.home
 community workaround, which no longer works as originally posted against
 current Home Assistant frontend releases (tested against 2026.8.1).
 
+![Set Device Dashboard panel, showing the dashboard picker dropdown](images/screenshot.jpg)
+
 Home Assistant removed the old per-browser default dashboard behavior when it
 introduced system-wide/user-level default dashboards. This adds back a
 per-device default via a custom sidebar panel: pick a dashboard on a given
