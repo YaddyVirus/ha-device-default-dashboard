@@ -10,7 +10,35 @@ per-device default via a custom sidebar panel: pick a dashboard on a given
 device/browser, and it's remembered for that device (via `localStorage`)
 independently of any other device.
 
-## Install
+## Install via HACS (recommended)
+
+1. HACS → the `⋮` menu (top right) → **Custom repositories** → paste
+   `https://github.com/YaddyVirus/ha-device-default-dashboard`, category
+   **Dashboard** → **Add**.
+2. Find **Device Default Dashboard** in HACS and install it. This downloads
+   `device-default-dashboard.js` to
+   `<config>/www/community/ha-device-default-dashboard/device-default-dashboard.js`,
+   served at `/hacsfiles/ha-device-default-dashboard/device-default-dashboard.js`.
+3. Add this to `configuration.yaml` (under a `panel_custom:` key — create it
+   if you don't already have one):
+   ```yaml
+   panel_custom:
+     - name: device-default-dashboard
+       sidebar_title: Set Device Dashboard
+       sidebar_icon: mdi:devices
+       module_url: /hacsfiles/ha-device-default-dashboard/device-default-dashboard.js?v=1
+   ```
+4. Restart Home Assistant.
+5. Open the new **Set Device Dashboard** entry in the sidebar, on each device
+   you want a distinct default for, and pick a dashboard. Optionally hide the
+   sidebar entry afterwards via your profile's "Sidebar" reordering.
+
+Future updates: bump the same `?v=` query string in your own config any time
+you update the HACS-managed file to a new version, for the same caching
+reason described in the gotchas below — HACS updating the file on disk
+doesn't by itself bust each device's cached copy of the old URL.
+
+## Manual install (without HACS)
 
 1. Copy `device-default-dashboard.js` to `<config>/www/dashboard/device-default-dashboard.js`.
 2. Add the contents of `configuration-snippet.yaml` to your `configuration.yaml`
